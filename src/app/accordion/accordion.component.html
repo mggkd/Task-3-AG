@@ -1,20 +1,22 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <form [formGroup]="accordionForm">
+            <form [formGroup]="accordionForm" (ngSubmit)="onSubmit()">
                 <div class="form-group col-md-6">
                     <label for="sectionHeader">Section Header:</label>
                     <input type="text" id="sectionHeader" formControlName="sectionHeader" class="form-control">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="sectionDetails">Section Details:</label>
-                    <input type="text" id="sectionDetails" formControlName="sectionDetails" class="form-control">
+                    <textarea id="sectionDetails" formControlName="sectionDetails" rows="5" class="form-control section-details-input"></textarea>
                 </div>
-                <button type="button" (click)="addSection()" class="btn btn-primary">Add</button>
+                <div class="form-group col-md-6">
+                    <button type="submit" (click)="addSection()" class="btn btn-info">Add Section</button>
+                </div>
             </form>
         </div>
     </div>
-    <div class="col-12">
+    <div class="col-12 mt-4">
         <p-accordion [multiple]="true">
             <p-accordionTab *ngFor="let section of sections">
                 <ng-template pTemplate="header">

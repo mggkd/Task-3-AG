@@ -29,12 +29,12 @@ export class AccordionComponent implements OnInit{
         details: this.accordionForm.value.sectionDetails
       };
       this.sections.push(newSection);
-      this.resetForm();
+      this.accordionForm.reset();
     }
   }
 
-  resetForm() {
-    this.accordionForm.reset();
+  onSubmit(){
+    console.log(this.accordionForm)
   }
 }
 
